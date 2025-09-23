@@ -8,17 +8,12 @@ import { useEffect } from "react";
 export default function Page() {
   const { user } = useUser();
 
-  console.log(user.id)
-
   const { transactions, summary, isLoading, loadData, deleteTransaction } =
     useTransactions(user.id);
 
   useEffect(() => {
     loadData();
   }, [loadData]);
-
-  console.log("transactions", transactions);
-  console.log("summary", summary);
 
   return (
     <View>
