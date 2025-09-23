@@ -8,5 +8,11 @@ export default function AuthLayout() {
 
   if (isSignedIn) return <Redirect href="/" />;
 
-  return <Stack screenOptions={{ headerShown: false }} />;
+  return (
+    <Stack
+      screenOptions={{
+        headerShown: false,
+      }}
+    />
+  );
 }

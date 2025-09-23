@@ -1,26 +1,34 @@
 import { Slot } from "expo-router";
-import SafeScreen from "@/components/SafeScreen";
 import { ClerkProvider } from "@clerk/clerk-expo";
 import { tokenCache } from "@clerk/clerk-expo/token-cache";
-import { StatusBar } from "expo-status-bar";
-import { useColorScheme } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { COLORS } from "@/constants/colors";
+import { StatusBar, useColorScheme } from "react-native";
 
 export default function RootLayout() {
   const scheme = useColorScheme();
 
   return (
-    <ClerkProvider
-      publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}
-      tokenCache={tokenCache}
-    >
-      <SafeAreaProvider>
-        <StatusBar style={scheme === "dark" ? "light" : "dark"} />
+    <>
+      <StatusBar
+        barStyle={scheme === "dark" ? "light-content" : "dark-content"}
+      />
 
-        <SafeScreen>
-          <Slot />
-        </SafeScreen>
-      </SafeAreaProvider>
-    </ClerkProvider>
+      <ClerkProvider
+        publishableKey={process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}
+        tokenCache={tokenCache}
+      >
+        <SafeAreaProvider>
+          <SafeAreaView
+            style={{
+              flex: 1,
+              backgroundColor: COLORS.background,
+            }}
+          >
+            <Slot />
+          </SafeAreaView>
+        </SafeAreaProvider>
+      </ClerkProvider>
+    </>
   );
 }
