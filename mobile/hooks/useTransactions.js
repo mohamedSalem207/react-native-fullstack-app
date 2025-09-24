@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import { Alert } from "react-native";
 
-const API_URL = "http://localhost:5001/api";
+const API_URL = "http://192.168.2.152:5001/api";
 
 export default function useTransactions(userId) {
   const [transactions, setTransactions] = useState([]);
@@ -10,7 +10,7 @@ export default function useTransactions(userId) {
     income: 0,
     expenses: 0,
   });
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchTransactions = useCallback(async () => {
     try {
@@ -41,7 +41,7 @@ export default function useTransactions(userId) {
 
     setIsLoading(true);
     try {
-      Promise.all([fetchTransactions(), fetchSummary()]);
+      await Promise.all([fetchTransactions(), fetchSummary()]);
     } catch (error) {
       console.error("Error loading data", error);
     } finally {
@@ -55,7 +55,7 @@ export default function useTransactions(userId) {
         method: "DELETE",
       });
 
-      if (!response.on) throw new Error("Filed to delete transaction.");
+      if (!response.ok) throw new Error("failed to delete transaction.");
 
       loadData();
 

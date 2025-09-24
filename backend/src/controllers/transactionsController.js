@@ -125,9 +125,9 @@ export async function getSummaryByUserId(req, res) {
 
     res.status(200).json({
       message: "Summary fetched successfully",
-      balance,
-      income,
-      expense,
+      balance: balance.balance,
+      income: income.income,
+      expense: expense.expense,
     });
   } catch (error) {
     console.error("Error getting summary", error);

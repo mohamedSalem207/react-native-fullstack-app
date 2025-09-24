@@ -13,5 +13,5 @@
     "**/*.tsx",
     ".expo/types/**/*.ts",
     "expo-env.d.ts"
-, "libs/utils.js", "components/SafeScreen.jsx", "app/_layout.jsx", "app/index.jsx", "app/(protected)/_layout.jsx"  ]
+, "libs/utils.js", "components/SafeScreen.jsx", "app/_layout.jsx", "app/index.jsx", "app/(root)/_layout.jsx"  ]
 }
