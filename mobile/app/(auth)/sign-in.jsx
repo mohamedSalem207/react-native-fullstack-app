@@ -99,11 +99,19 @@ export default function Page() {
         />
 
         <TouchableOpacity
-          style={styles.button}
+          style={[
+            styles.button,
+            isLoading
+              ? {
+                  opacity: 0.5,
+                  pointerEvents: "none",
+                }
+              : "",
+          ]}
           disabled={!emailAddress || !password || isLoading}
           onPress={onSignInPress}
         >
-          <Text style={styles.buttonText}>Sign Up</Text>
+          <Text style={styles.buttonText}>Sign In</Text>
         </TouchableOpacity>
 
         <View style={styles.footerContainer}>

@@ -60,6 +60,7 @@ export const styles = StyleSheet.create({
     borderRadius: 25,
     borderWidth: 1,
     borderColor: COLORS.border,
+    gap: 10,
   },
   typeButtonActive: {
     backgroundColor: COLORS.primary,
@@ -119,10 +120,6 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "600",
     color: COLORS.text,
-    marginBottom: 15,
-    marginTop: 10,
-    flexDirection: "row",
-    alignItems: "center",
   },
   categoryGrid: {
     flexDirection: "row",
@@ -138,6 +135,7 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.border,
     backgroundColor: COLORS.white,
+    gap: 5,
   },
   categoryButtonActive: {
     backgroundColor: COLORS.primary,

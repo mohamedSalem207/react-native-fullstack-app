@@ -19,6 +19,7 @@ import LogoutButton from "../../components/LogoutButton";
 import BalanceCard from "../../components/BalanceCard";
 import TransactionItem from "../../components/TransactionItem";
 import NoTransactionsFound from "../../components/NoTransactionsFound";
+import { COLORS } from "../../constants/colors";
 
 export default function Page() {
   const { user } = useUser();
@@ -121,7 +122,9 @@ export default function Page() {
           <RefreshControl
             refreshing={refreshing}
             onRefresh={onRefresh}
-            progressViewOffset={120}
+            tintColor={COLORS.primary}
+            title="Pull to refresh"
+            titleColor={COLORS.primary}
           />
         }
       />

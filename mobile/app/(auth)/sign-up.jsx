@@ -45,7 +45,7 @@ export default function SignUpScreen() {
       setPendingVerification(true);
     } catch (err) {
       setError(JSON.stringify(err.errors[0].message, null, 2));
-
+    } finally {
       setIsLoading(false);
     }
   };
